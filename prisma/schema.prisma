@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model comissoes {
+  ID_COMISSAO      Int      @id @default(autoincrement())
+  ID_PEDIDO        Int
+  VALOR_PEDIDO     String   @db.VarChar(30)
+  DATA_RECEBIMENTO DateTime @db.Date
+  VALOR_COMISSAO   Decimal  @db.Decimal(6, 2)
+  SITUACAO         Boolean
+  FORMA_PAGAMENTO  String?  @db.VarChar(30)
+}
+
+model nivel_acesso {
+  ID_NIVEL        Int    @id @default(autoincrement())
+  NOME_NIVEL      String @db.VarChar(50)
+  DESCRICAO_NIVEL String @db.LongText
+}
+
+model usuarios {
+  ID_USUARIO     Int      @id @default(autoincrement())
+  NOME_USUARIO   String   @db.VarChar(50)
+  DATA_CADASTRO  DateTime @db.DateTime(0)
+  LOGIN_USUARIO  String   @db.VarChar(30)
+  SENHA_USUARIO  String   @db.VarChar(50)
+  STATUS_USUARIO String   @db.VarChar(30)
+  ID_NIVEL       Int
+}
