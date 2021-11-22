@@ -25,7 +25,8 @@
     "migrate:deploy": "npx prisma migrate deploy",
     "prisma:generate": "npx prisma generate",
     "prisma:studio": "npx prisma studio",
-    "prisma:seed": "npx prisma db seed --preview-feature"
+    "prisma:seed": "npx prisma db seed --preview-feature",
+    "doc": "npx @compodoc/compodoc -p tsconfig.json -s"
   },
   "dependencies": {
     "@ccmos/nestjs-moment": "^0.1.0",
@@ -43,6 +44,7 @@
     "rxjs": "^7.2.0"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.15",
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
