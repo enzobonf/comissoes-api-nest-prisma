@@ -38,14 +38,14 @@ export class ComissoesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.comissoesService.findOne(+id);
   }
 
   @Patch(':id')
   @UsePipes(ValidationPipe)
   update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() updateComissoeDto: UpdateComissoeDto,
   ) {
     return this.comissoesService.update(+id, updateComissoeDto);
